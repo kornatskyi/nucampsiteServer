@@ -8,6 +8,7 @@ const campsiteRouter = express.Router();
 campsiteRouter.route('/')
 .options(cors.corsWithOptions, (req, res) => res.sendStatus(200))
 .get(cors.cors, (req, res, next) => {
+
     Campsite.find()
     .populate('comments.author')
     .then(campsites => {
